@@ -1,0 +1,23 @@
+[
+    {
+        "location": "Nairobi County",
+        "lat": -1.286389,
+        "lng": 36.817223,
+        "soil_health": "Good",
+        "vegetation": "Moderate"
+    },
+    {
+        "location": "Kakamega Forest",
+        "lat": 0.2833,
+        "lng": 34.7500,
+        "soil_health": "Excellent",
+        "vegetation": "Dense"
+    },
+    {
+        "location": "Garissa",
+        "lat": -0.4532,
+        "lng": 39.6460,
+        "soil_health": "Poor",
+        "vegetation": "Sparse"
+    }
+]

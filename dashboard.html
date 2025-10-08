@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReforestAI Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+    <header>
+        <h1>ReforestAI Dashboard</h1>
+        <p>Real-time Monitoring & Insights</p>
+    </header>
+
+    <main>
+        <div class="dashboard">
+            <div id="map"></div>
+            <div class="data-section">
+                <h3>Soil Health Data</h3>
+                <ul id="soil-list"></ul>
+            </div>
+        </div>
+        <a href="/" class="btn">⬅ Back Home</a>
+    </main>
+
+    <footer>
+        <p>© 2025 ReforestAI</p>
+    </footer>
+
+    <script>
+        // Initialize Leaflet Map
+        const map = L.map('map').setView([0.0236, 37.9062], 6);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        // Load soil data
+        fetch('/api/soil-data')
+        .then(res => res.json())
+        .then(data => {
+            const list = document.getElementById('soil-list');
+            data.forEach(point => {
+                const item = document.createElement('li');
+                item.textContent = `🌱 ${point.location} - Health: ${point.soil_health} | Vegetation: ${point.vegetation}`;
+                list.appendChild(item);
+
+                // Add markers to map
+                L.marker([point.lat, point.lng]).addTo(map)
+                    .bindPopup(`<b>${point.location}</b><br>Soil: ${point.soil_health}<br>Vegetation: ${point.vegetation}`);
+            });
+        });
+    </script>
+</body>
+</html>
