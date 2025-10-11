@@ -4,6 +4,8 @@
 > Empowering sustainable land management through data, AI, and actionable insights.
 
 ---
+🌿 Live Demo: https://milliecandie.github.io/ReforestAI/
+⚙️ Backend API (soon): https://reforestai-backend.onrender.com
 
 ## 🚀 Overview
 **ReforestAI** is an AI-driven environmental monitoring system that detects early signs of **soil degradation**, **vegetation loss**, and supports **sustainable agriculture** and **reforestation planning**.  
